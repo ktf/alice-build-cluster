@@ -13,6 +13,21 @@ configure_make(
 )
 
 configure_make(
+    name = "sqlite",
+    configure_options = [
+        "--disable-dependecy-tracking",
+        "--disable-shared"
+    ],
+    configure_env_vars = {
+      "AR": "",
+    },
+    lib_source = "@sqlite_sources//:all",
+    static_libraries = [
+        "libsqlite3.a",
+    ],
+)
+
+configure_make(
     name = "openssl",
     configure_command = "config",
     configure_options = [
@@ -63,6 +78,7 @@ configure_make(
         "--with-apr=$$EXT_BUILD_DEPS$$/apr",
         "--with-apr-util=$$EXT_BUILD_DEPS$$/apr_util",
         "--with-lz4=internal",
+        "--with-sqlite=$$EXT_BUILD_DEPS$$/sqlite",
         "--with-utf8proc=internal",
         "CFLAGS='-Dredacted=\"redacted\"'"
         ],

@@ -46,7 +46,16 @@ http_archive(
 )
 
 http_archive(
+   name = "sqlite_sources",
+   build_file_content = all_content,
+   strip_prefix = "sqlite-autoconf-3310100",
+   urls = ["https://www.sqlite.org/2020/sqlite-autoconf-3310100.tar.gz"],
+   sha256 = "62284efebc05a76f909c580ffa5c008a7d22a1287285d68b7825a2b6b51949ae"
+)
+
+http_archive(
    name = "apr_util_sources",
+   sha256 = "b65e40713da57d004123b6319828be7f1273fbc6490e145874ee1177e112c459",
    build_file_content = all_content,
    strip_prefix = "apr-util-1.6.1/",
    urls = ["https://apache.mirror.schettada.io//apr/apr-util-1.6.1.tar.gz"]
