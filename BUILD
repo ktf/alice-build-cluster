@@ -73,7 +73,7 @@ configure_make(
 configure_make(
     name = "svn",
     lib_source = "@svn_sources//:all",
-    deps = [":apr", ":apr_util"],
+    deps = [":apr", ":apr_util", ":sqlite"],
     configure_options = [
         "--with-apr=$$EXT_BUILD_DEPS$$/apr",
         "--with-apr-util=$$EXT_BUILD_DEPS$$/apr_util",
